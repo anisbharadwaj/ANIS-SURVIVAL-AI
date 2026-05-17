@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'config/theme/app_theme.dart';
 import 'config/localization/app_localization.dart';
 import 'presentation/screens/splash/splash_screen.dart';
+import 'presentation/screens/home/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,22 @@ class ANISSurvivalApp extends ConsumerWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: const SplashScreen(),
+      routes: {
+        '/home': (context) => const HomeScreen(),
+        '/emergency': (context) => const EmergencyScreen(),
+      },
+    );
+  }
+}
+
+class EmergencyScreen extends StatelessWidget {
+  const EmergencyScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppTheme.backgroundColor,
+      body: Container(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+
 import '../../../config/theme/app_theme.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   _navigateToHome() async {
     await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
-      // Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/home');
     }
   }
 
@@ -31,7 +32,6 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo with glow effect
             Container(
               width: 120,
               height: 120,
@@ -59,7 +59,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   curve: Curves.easeInOut,
                 ),
             const SizedBox(height: 40),
-            // Title
             Text(
               'ANIS',
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
@@ -68,7 +67,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
             ).animate().fadeIn(duration: const Duration(milliseconds: 800)),
             const SizedBox(height: 8),
-            // Tagline
             Text(
               'Navigate. Survive. Anywhere.',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -80,7 +78,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 .fadeIn(delay: const Duration(milliseconds: 400))
                 .slideY(begin: 0.3),
             const SizedBox(height: 60),
-            // Loading indicator
             SizedBox(
               width: 40,
               height: 40,
@@ -92,7 +89,6 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ).animate().fadeIn(delay: const Duration(milliseconds: 800)),
             const SizedBox(height: 20),
-            // Status text
             Text(
               'Initializing AI Navigation System...',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+
 import '../../config/theme/app_theme.dart';
 
 class TacticalHUDWidget extends StatefulWidget {
@@ -69,13 +70,10 @@ class _TacticalHUDWidgetState extends State<TacticalHUDWidget>
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Radar Section
           _buildRadarSection(),
           const SizedBox(height: 16),
-          // HUD Data Grid
           _buildHUDDataGrid(),
           const SizedBox(height: 12),
-          // Signal Status
           _buildSignalStatus(),
         ],
       ),
@@ -89,7 +87,6 @@ class _TacticalHUDWidgetState extends State<TacticalHUDWidget>
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // Radar circles
           ...List.generate(
             3,
             (index) => Container(
@@ -104,7 +101,6 @@ class _TacticalHUDWidgetState extends State<TacticalHUDWidget>
               ),
             ),
           ),
-          // Rotating radar arm
           RotationTransition(
             turns: _radarController,
             child: Container(
@@ -113,7 +109,6 @@ class _TacticalHUDWidgetState extends State<TacticalHUDWidget>
               color: AppTheme.primaryColor,
             ),
           ),
-          // Center dot
           Container(
             width: 8,
             height: 8,
@@ -126,18 +121,6 @@ class _TacticalHUDWidgetState extends State<TacticalHUDWidget>
                   blurRadius: 8,
                 )
               ],
-            ),
-          ),
-          // Heading indicator
-          Transform.rotate(
-            angle: (widget.heading * 3.14159265359) / 180,
-            child: Positioned(
-              top: 10,
-              child: Icon(
-                Icons.navigation,
-                color: AppTheme.accentColor,
-                size: 16,
-              ),
             ),
           ),
         ],
@@ -228,19 +211,16 @@ class _TacticalHUDWidgetState extends State<TacticalHUDWidget>
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // Battery status
         _buildStatusIndicator(
           icon: Icons.battery_std,
           value: '${widget.batteryLevel}%',
           color: _getBatteryColor(),
         ),
-        // Signal status
         _buildStatusIndicator(
           icon: Icons.signal_cellular_alt,
           value: widget.signalStatus,
           color: _getSignalColor(),
         ),
-        // Emergency status
         if (widget.isEmergency)
           _buildStatusIndicator(
             icon: Icons.warning,
