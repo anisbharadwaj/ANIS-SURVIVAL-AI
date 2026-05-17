@@ -8,4 +8,5 @@ dependencies:
   geolocator: ^11.0.0
   flutter_map: ^6.0.0
   latlong2: ^0.9.0
-  flutter_tts: ^4.0.2  # <-- Add this here for offline voice synthesis
+  flutter_tts: ^4.0.2  
+  flutter_compass: ^0.7.0  #  <-- Add this here to read physical phone rotation
