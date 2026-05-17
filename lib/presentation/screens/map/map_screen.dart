@@ -152,15 +152,15 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           // 1. Core Map Layer
-          FlutterMap(
-            mapController: _mapController,
-            options: MapOptions(
-              initialCenter: _currentPosition,
-              initialZoom: 14.0,
-              maxZoom: 18.0,
-            ),
-            children: [
-              TileLayer(
+        FlutterMap(
+          mapController: _mapController,
+          options: MapOptions(
+            initialCenter: const LatLng(26.1445, 91.7363),
+            initialZoom: 13.0,
+            rotation: 360.0 - _deviceHeading, // 🧭 This forces the map to point North dynamically!
+          ),
+          children: [
+            TileLayer(
                 urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                 userAgentPackageName: 'com.anis.survival.ai',
               ),
