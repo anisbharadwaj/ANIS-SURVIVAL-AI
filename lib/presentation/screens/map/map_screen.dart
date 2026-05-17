@@ -22,6 +22,25 @@ class _MapScreenState extends State<MapScreen> {
   final GpsEngine _gpsEngine = GpsEngine();
   StreamSubscription<GpsData>? _mapStreamSubscription;
   
+  // 🧭 Compass Sensor Data Variable
+  double _deviceHeading = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    
+    // Listen directly to physical phone compass chip changes completely offline
+    FlutterCompass.events?.listen((CompassEvent event) {
+      if (mounted) {
+        setState(() {
+          _deviceHeading = event.heading ?? 0.0; 
+        });
+      }
+    });
+  }
+  final GpsEngine _gpsEngine = GpsEngine();
+  StreamSubscription<GpsData>? _mapStreamSubscription;
+  
   final MapController _mapController = MapController();
   LatLng _currentPosition = const LatLng(26.1445, 91.7363); 
   
