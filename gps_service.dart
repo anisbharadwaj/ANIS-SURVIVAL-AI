@@ -1,67 +1,41 @@
-import 'dart:async';
-import 'package:geolocator/geolocator.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
+class GpsData {
+  final int? id;
+  final double latitude;
+  final double longitude;
+  final double altitude;
+  final double speed;
+  final DateTime timestamp;
 
-class GPSService {
-  StreamSubscription<Position>? _positionStream;
-  final Function(Position) onLocationUpdate;
+  GpsData({
+    this.id,
+    required this.latitude,
+    required this.longitude,
+    required this.altitude,
+    required this.speed,
+    required this.timestamp,
+  });
 
-  GPSService({required this.onLocationUpdate});
-
-  Future<void> startTracking() async {
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      throw Exception("Location services are disabled.");
-    }
-
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        throw Exception("Location permissions are denied.");
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      throw Exception("Location permissions are permanently denied.");
-    }
-
-    _positionStream = Geolocator.getPositionStream(
-      locationSettings: LocationSettings(
-        accuracy: LocationAccuracy.high,
-        distanceFilter: 10, // update every 10 meters
-      ),
-    ).listen((Position position) async {
-      onLocationUpdate(position);
-      await _saveBreadcrumb(position);
-    });
+  // Convert a Database map into a GpsData object
+  factory GpsData.fromMap(Map<String, dynamic> map) {
+    return GpsData(
+      id: map['id'] as int?,
+      latitude: map['latitude'] as double,
+      longitude: map['longitude'] as double,
+      altitude: map['altitude'] as double,
+      speed: map['speed'] as double,
+      timestamp: DateTime.parse(map['timestamp'] as String),
+    );
   }
 
-  Future<void> stopTracking() async {
-    await _positionStream?.cancel();
-  }
-
-  Future<void> _saveBreadcrumb(Position position) async {
-    final database = openDatabase(
-      join(await getDatabasesPath(), 'breadcrumbs.db'),
-      onCreate: (db, version) {
-        return db.execute(
-          "CREATE TABLE breadcrumbs(id INTEGER PRIMARY KEY, lat REAL, lon REAL, time TEXT)",
-        );
-      },
-      version: 1,
-    );
-
-    final db = await database;
-    await db.insert(
-      'breadcrumbs',
-      {
-        'lat': position.latitude,
-        'lon': position.longitude,
-        'time': DateTime.now().toIso8601String(),
-      },
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+  // Convert a GpsData object into a Database map
+  Map<String, dynamic> toMap() {
+    return {
+      if (id != null) 'id': id,
+      'latitude': latitude,
+      'longitude': longitude,
+      'altitude': altitude,
+      'speed': speed,
+      'timestamp': timestamp.toIso8601String(),
+    };
   }
 }
