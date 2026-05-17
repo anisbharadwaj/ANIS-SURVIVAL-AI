@@ -1,38 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
+import 'core/theme/app_theme.dart';
 
-import 'config/theme/app_theme.dart';
-import 'config/localization/app_localization.dart';
-import 'presentation/screens/splash/splash_screen.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  
-  // Initialize supported locales
-  await initializeDateFormatting();
-  
-  runApp(
-    const ProviderScope(
-      child: ANISSurvivalApp(),
-    ),
-  );
+void main() {
+  runApp(const SurvivalAIApp());
 }
 
-class ANISSurvivalApp extends ConsumerWidget {
-  const ANISSurvivalApp({Key? key}) : super(key: key);
+class SurvivalAIApp extends StatelessWidget {
+  const SurvivalAIApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ANIS SURVIVAL AI',
+
       debugShowCheckedModeBanner: false,
+
+      title: 'ANIS SURVIVAL AI',
+
       theme: AppTheme.darkTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.dark,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: const SplashScreen(),
+
+      home: const Scaffold(
+        body: Center(
+          child: Text(
+            'ANIS SURVIVAL AI',
+            style: TextStyle(
+              color: Colors.cyanAccent,
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
