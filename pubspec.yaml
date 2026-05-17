@@ -1,10 +1,3 @@
-name: anis_survival_ai
-description: Production Grade Fully Offline AI Survival & Tactical Navigation Platform.
-version: 1.0.0+1
-
-environment:
-  sdk: ">=3.3.0 <4.0.0"
-
 dependencies:
   flutter:
     sdk: flutter
@@ -15,10 +8,4 @@ dependencies:
   geolocator: ^11.0.0
   flutter_map: ^6.0.0
   latlong2: ^0.9.0
-
-flutter:
-  uses-material-design: true
-  assets:
-    - assets/models/survival_quantized.tflite
-    - assets/maps/
-    - assets/map_tiles/
+  flutter_tts: ^4.0.2  # <-- Add this here for offline voice synthesis
