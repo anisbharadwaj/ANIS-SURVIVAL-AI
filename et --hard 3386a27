@@ -1,0 +1,50 @@
+[33mf9e0b37[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Remove invalid Windows filename
+[33m28d0587[m Update main.dart
+[33md4d458a[m feat: Add AI Assistant screen
+[33m8dbccdb[m feat: Add Route Viewer screen
+[33m4041330[m feat: Add Trekking Dashboard screen
+[33m0875f04[m test: Add navigation engine unit tests
+[33me29f34a[m test: Add AI assistant unit tests
+[33md724bff[m test: Add return path engine unit tests
+[33m40ed08f[m docs: Add complete release notes for v1.0.0
+[33mfe7d4f9[m Refactor map screen to use Geolocator for GPS
+[33m9912d55[m Update map_screen.dart
+[33m1bbdb3e[m Implement compass sensor data in map screen
+[33mf2abcd1[m Add flutter_compass package import to map_screen.dart
+[33m90420ed[m Add flutter_tts and flutter_compass dependencies
+[33m23afc10[m Rename deshboard_cockpit_screen.dart to dashboard_cockpit_screen.dart
+[33m97dc408[m Delete lib/presentation/screen/map/map_screen.dart
+[33ma42ed05[m Create deshboard_cockpit_screen.dart
+[33mfded94a[m Create sensor_telemetry_grid.dart
+[33m286d99e[m Create telemetry_calculator.dart
+[33mf802d70[m Create _requestTacticalReturnPath
+[33m22fe324[m Update map_screen.dart
+[33mac86f9f[m Create voice_engine.dart
+[33m725f4f1[m Update pubspec.yaml
+[33m9fb076a[m Update pubspec.yaml
+[33m8da322e[m Refactor MapViewScreen to MapScreen with updates
+[33m4072e40[m Create app.py
+[33m93706a5[m Create map_screen.dart
+[33m9e4ad34[m Delete map_screen.dart
+[33m55b38f4[m Create gps_engine.dart
+[33mc034702[m Update database_service.dart
+[33m7610d94[m Update gps_service.dart
+[33m44beec3[m Create offline_style.json.
+[33mec8db9a[m Update map_screen.dart
+[33ma0dbde9[m Create map_screen.dart
+[33ma93fd40[m Create map_screen.dart
+[33m7e1eb96[m Create gps_service.dart
+[33m299ed81[m Update map_screen.dart
+[33m8f42bbc[m Create map_screen.dart
+[33m803d2e2[m Update and rename lib/main.dartimport 'presentation/screens/home/home_screen.dart'; to lib/main.dart
+[33mc93c49c[m Update pubspec.yaml
+[33m81f0789[m Create gps_service.dart
+[33m4e68aa9[m Rename lib/main.dart to lib/main.dartimport 'presentation/screens/home/home_screen.dart';
+[33m2480068[m Create home_screen.dart
+[33maece259[m Update main.dart
+[33meb3fa14[m Create app_theme.dart
+[33m3fe2324[m Delete lib/presentation/screens/splash/splash_screen.dart
+[33m46e5882[m Delete numerology_engine_v2_fixed.py
+[33m3de5a89[m Merge pull request #1 from anisbharadwaj/dev/core-setup
+[33m01bfa85[m feat: Initialize complete ANIS SURVIVAL AI project structure with core systems
+[33m7e24c84[m Add files via upload
