@@ -13,7 +13,6 @@ dependencies:
   battery_plus: ^4.0.3
   speech_to_text: ^6.0.0
   flutter_tts: ^3.5.0
-  audioplayers: ^1.1.0
   flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
