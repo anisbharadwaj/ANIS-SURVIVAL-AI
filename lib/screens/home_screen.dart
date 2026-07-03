@@ -9,11 +9,14 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(child: Center(child: Text('Welcome to ANIS SURVIVAL AI', style: Theme.of(context).textTheme.headline6))),
+            Expanded(child: Center(child: Text('Welcome to ANIS SURVIVAL AI', style: Theme.of(context).textTheme.headlineSmall))),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: BigSosButton(onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => EmergencyScreen()));
+                // Emergency screen placeholder
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Emergency Alert Activated!'))
+                );
               }),
             )
           ],
