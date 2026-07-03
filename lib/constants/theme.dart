@@ -13,8 +13,8 @@ class AnisTheme {
       secondary: emergencyRed,
     ),
     textTheme: TextTheme(
-      headline6: TextStyle(color: neonCyan),
-      bodyText2: TextStyle(color: Colors.white70),
+      headlineSmall: TextStyle(color: neonCyan),
+      bodyMedium: TextStyle(color: Colors.white70),
     ),
   );
 }
