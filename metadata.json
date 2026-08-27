@@ -1,0 +1,6 @@
+{
+  "name": "ANIS Survival AI",
+  "description": "Tactical survival assistant with interactive Google Maps, India Offline Map, bilingual English/Hindi voice intelligence, emergency SOS, and a comprehensive India village explorer.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
